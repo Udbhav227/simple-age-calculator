@@ -20,6 +20,12 @@ body {
   font-style: normal;
 }
 
+/* Disable scrolling */
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
 /* Heading Styling */
 .title {
   text-align: center;
