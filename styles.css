@@ -1,5 +1,5 @@
  /* Font Styling */
-.marcellus-regular {
+ .marcellus-regular {
   font-family: "Marcellus", serif;
   font-weight: 400;
   font-style: normal;
@@ -44,8 +44,8 @@ body {
 }
 
 .input div:first-child {
-  margin-bottom: 5px;
-  font-size: 1em;
+  margin-bottom: 6px;
+  font-size: 1.1em;
 }
 
 /* Input Field Styling */
@@ -54,9 +54,15 @@ input[type="number"] {
   padding: 15px; /* Increase padding for larger boxes */
   font-size: 1.2em;
   text-align: center;
-  border-radius: 12px;
+  border-radius: 15px;
   outline: none;
-  border: 2px solid black;
+  border: 3px solid black;
+  transition: outline 0.2s ease;
+}
+
+/* Focus Effect for Input */
+input[type="number"]:focus {
+  outline: 4px solid rgba(128, 128, 128, 0.3); /* Gray outline with low opacity */
 }
 
 /* Specific Widths for Day, Month, Year */
@@ -83,7 +89,7 @@ input[type="number"] {
   input[type="number"] {
     font-size: 1.4em;
     padding: 12px; /* Slightly smaller padding for smaller screens */
-    font-weight: bolder;
+    font-weight: bold;
   }
 }
 
