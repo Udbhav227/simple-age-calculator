@@ -51,7 +51,7 @@ document.querySelector('.calc-btn button').addEventListener('click', function() 
   const year = parseInt(document.querySelector('.year input').value);
   
   if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
-    document.getElementById('age-display').textContent = 'Please enter a valid date.';
+    document.getElementById('first-line').textContent = 'Please enter a valid date.';
     return;
   }
 
@@ -71,7 +71,9 @@ document.querySelector('.calc-btn button').addEventListener('click', function() 
     ageMonths += 12;
   }
 
-  document.getElementById('age-display').textContent = `${ageYears} years, ${ageMonths} months, and ${ageDays} days`;
+  document.getElementById('first-line').textContent = `${ageYears} years,`;
+  document.getElementById('sec-line').textContent = `${ageMonths} months,`;
+  document.getElementById('third-line').textContent = `and ${ageDays} days.`;
 });
 
 
