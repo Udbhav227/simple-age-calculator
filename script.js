@@ -1,20 +1,46 @@
 document.querySelectorAll('input[type="number"]').forEach((input, index, inputs) => {
-  input.addEventListener('input', function () {
-    const value = parseInt(this.value);
-    const min = parseInt(this.min);
-    const max = parseInt(this.max);
-    const maxLength = this.max.length; // Calculate max length for auto-move
+  function updateOutline() {
+    const value = input.value;
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
 
-    if (value < min || value > max) {
-      this.style.border = '3px solid red';
-      this.style.outline = '4px solid rgba(255, 0, 0, 0.3)'; // Hard low-opacity red outline
+    if (input === document.activeElement) {
+      if (value === '') {
+        input.style.outline = '4px solid rgba(128, 128, 128, 0.3)';
+      }
+      else if ((isNaN(value) || value < min || value > max)) {
+        input.style.outline = '4px solid rgba(255, 0, 0, 0.3)'; // Red outline for empty or invalid input
+      } else {
+        input.style.outline = '4px solid rgba(128, 128, 128, 0.3)'; // Gray outline for valid input
+      }
     } else {
-      this.style.border = '3px solid black';
-      this.style.outline = 'none';
+      input.style.outline = 'none'; // No outline when not focused
     }
 
+    if (value === '') {
+      input.classList.remove('error');
+    }
+    else if (isNaN(value) || value < min || value > max) {
+      input.classList.add('error');
+    } else {
+      input.classList.remove('error');
+    }
+  }
+
+  input.addEventListener('input', function() {
+    updateOutline();
+
+    const maxLength = this.max.length;
     if (this.value.length === maxLength && index < inputs.length - 1) {
       inputs[index + 1].focus();
     }
+  });
+
+  input.addEventListener('focus', function() {
+    updateOutline();
+  });
+
+  input.addEventListener('blur', function() {
+    updateOutline();
   });
 });

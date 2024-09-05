@@ -8,7 +8,7 @@
 /* General Body Styling */
 body {
   margin: 0;
-  padding: 40px;
+  padding: 30px;
   background-color: #f4f4f4;
   color: #333;
   display: flex;
@@ -44,26 +44,39 @@ body {
 }
 
 .input div:first-child {
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   font-size: 1.1em;
 }
 
 /* Input Field Styling */
 input[type="number"] {
   width: 100%;
-  padding: 15px; /* Increase padding for larger boxes */
+  padding: 15px;
   font-size: 1.2em;
   text-align: center;
   border-radius: 15px;
   outline: none;
   border: 3px solid black;
-  transition: outline 0.2s ease;
+  transition: outline 0.2s ease, border 0.2s ease;
 }
 
 /* Focus Effect for Input */
 input[type="number"]:focus {
   outline: 4px solid rgba(128, 128, 128, 0.3); /* Gray outline with low opacity */
 }
+
+/* Error styling: Red border and low-opacity red outline */
+input[type="number"].error {
+  border: 3px solid red;
+  outline: 4px solid rgba(255, 0, 0, 0.3); /* Red outline when invalid */
+}
+
+/* Placeholder Styling */
+input::placeholder {
+  font-weight: 500; /* Adjust the font weight as needed (e.g., 300 for light) */
+  color: #888888ad;
+}
+
 
 /* Specific Widths for Day, Month, Year */
 .day input {
@@ -94,5 +107,5 @@ input[type="number"]:focus {
 }
 
 .info {
-  margin: 0 5px;
+  margin: 0 2px;
 }
