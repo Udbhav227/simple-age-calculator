@@ -44,3 +44,11 @@ document.querySelectorAll('input[type="number"]').forEach((input, index, inputs)
     updateOutline();
   });
 });
+
+window.addEventListener("resize", () => {
+  const calcBtn = document.querySelector(".calc-btn");
+  const viewportHeight = window.innerHeight;
+  
+  // Adjust button position when the keyboard appears
+  calcBtn.style.bottom = `${window.innerHeight < viewportHeight ? 50 : 0}px`;
+});

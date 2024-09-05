@@ -1,14 +1,24 @@
-/* Font Styling */
-.marcellus-regular {
-  font-family: "Marcellus", serif;
-  font-weight: 400;
-  font-style: normal;
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
 }
 
 /* General Body Styling */
 body {
   margin: 0;
-  padding: 33px;
+  padding: 30px;
   background-color: #f4f4f4;
   color: #333;
   display: flex;
@@ -32,7 +42,8 @@ body {
   width: 100%;
   max-width: 400px;
   font-weight: bold;
-  gap: 13px;
+  gap: 10px;
+  flex-grow: 1;
 }
 
 /* Input Group Styling */
@@ -50,6 +61,7 @@ body {
 
 /* Input Field Styling */
 input[type="number"] {
+  font-family: "Libre Baskerville", serif !important;
   width: 100%;
   padding: 15px;
   font-size: 1.2em;
@@ -68,26 +80,26 @@ input[type="number"]:focus {
 /* Error styling: Red border and low-opacity red outline */
 input[type="number"].error {
   border: 3px solid red;
-  outline: 4px solid rgba(255, 0, 0, 0.3); /* Red outline when invalid */
+  outline: 4px solid rgba(255, 0, 0, 0.3); 
 }
 
 /* Placeholder Styling */
 input::placeholder {
-  font-weight: 500; /* Adjust the font weight as needed (e.g., 300 for light) */
+  font-weight: 500; 
   color: #888888ad;
 }
 
 /* Specific Widths for Day, Month, Year */
 .day input {
-  max-width: calc(100% -20px); /* Adjust to fit container with 10px gap */
+  max-width: calc(100% -20px); 
 }
 
 .month input {
-  max-width: calc(100% - 20px); /* Adjust to fit container with 10px gap */
+  max-width: calc(100% - 20px); 
 }
 
 .year input {
-  max-width: calc(100% - 20px); /* Adjust to fit container with 10px gap */
+  max-width: calc(100% - 20px);
 }
 
 /* Make Inputs Responsive */
@@ -95,12 +107,12 @@ input::placeholder {
   .day input,
   .month input,
   .year input {
-    max-width: calc(100% - 20px); /* Maintain gap on smaller screens */
+    max-width: calc(100% - 20px);
   }
 
   input[type="number"] {
     font-size: 1.4em;
-    padding: 12px; /* Slightly smaller padding for smaller screens */
+    padding: 12px;
     font-weight: bold;
   }
 }
@@ -110,7 +122,19 @@ input::placeholder {
 }
 
 /* Button Styling */
+.calc-btn {
+  position: fixed; /* Keep button at the bottom */
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 60px); /* Adjust for body's padding */
+  padding: 0;
+  margin: 20px 30px; /* Match body's padding */
+  display: flex;
+  justify-content: center;
+}
+
 button {
+  width: 100%;
   padding: 15px;
   background: #000;
   border: 3px solid black;
@@ -120,15 +144,14 @@ button {
   font-size: 1em;
   letter-spacing: 0.5px;
   border-radius: 15px;
+  box-sizing: border-box;
   transition: box-shadow 0.1s ease, transform 0.1s ease;
   cursor: pointer;
-  display: block;
-  margin: 20px auto;
 }
 
 /* Click Animation */
 button:active {
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3); /* Outline effect on click */
-  transform: scale(0.96); /* Slightly scale down the button */
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+  transform: scale(0.96);
 }
 
