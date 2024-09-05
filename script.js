@@ -45,6 +45,36 @@ document.querySelectorAll('input[type="number"]').forEach((input, index, inputs)
   });
 });
 
+document.querySelector('.calc-btn button').addEventListener('click', function() {
+  const day = parseInt(document.querySelector('.day input').value);
+  const month = parseInt(document.querySelector('.month input').value);
+  const year = parseInt(document.querySelector('.year input').value);
+  
+  if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
+    document.getElementById('age-display').textContent = 'Please enter a valid date.';
+    return;
+  }
+
+  const today = new Date();
+  const birthDate = new Date(year, month - 1, day);
+  let ageYears = today.getFullYear() - birthDate.getFullYear();
+  let ageMonths = today.getMonth() - birthDate.getMonth();
+  let ageDays = today.getDate() - birthDate.getDate();
+
+  if (ageDays < 0) {
+    ageMonths--;
+    ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+
+  if (ageMonths < 0) {
+    ageYears--;
+    ageMonths += 12;
+  }
+
+  document.getElementById('age-display').textContent = `${ageYears} years, ${ageMonths} months, and ${ageDays} days`;
+});
+
+
 function adjustButtonPosition() {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
