@@ -1,0 +1,92 @@
+ /* Font Styling */
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* General Body Styling */
+body {
+  margin: 0;
+  padding: 40px;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  font-family: "Marcellus", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Heading Styling */
+.heading h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Container Styling */
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  font-weight: bold;
+  gap: 15px;
+}
+
+/* Input Group Styling */
+.input {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.input div:first-child {
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+/* Input Field Styling */
+input[type="number"] {
+  width: 100%;
+  padding: 15px; /* Increase padding for larger boxes */
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 12px;
+  outline: none;
+  border: 2px solid black;
+}
+
+/* Specific Widths for Day, Month, Year */
+.day input {
+  max-width: calc(100% -20px); /* Adjust to fit container with 10px gap */
+}
+
+.month input {
+  max-width: calc(100% - 20px); /* Adjust to fit container with 10px gap */
+}
+
+.year input {
+  max-width: calc(100% - 20px); /* Adjust to fit container with 10px gap */
+}
+
+/* Make Inputs Responsive */
+@media screen and (max-width: 400px) {
+  .day input,
+  .month input,
+  .year input {
+    max-width: calc(100% - 20px); /* Maintain gap on smaller screens */
+  }
+
+  input[type="number"] {
+    font-size: 1.4em;
+    padding: 12px; /* Slightly smaller padding for smaller screens */
+    font-weight: bolder;
+  }
+}
+
+.info {
+  margin: 0 5px;
+}
