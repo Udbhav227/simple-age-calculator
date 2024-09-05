@@ -1,22 +1,12 @@
+/* Global Reset and Basic Styles */
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-#root, #__next {
-  isolation: isolate;
-}
-
-/* General Body Styling */
-body {
   margin: 0;
   padding: 30px;
   background-color: #f4f4f4;
@@ -77,7 +67,7 @@ input[type="number"]:focus {
   outline: 4px solid rgba(128, 128, 128, 0.3); /* Gray outline with low opacity */
 }
 
-/* Error styling: Red border and low-opacity red outline */
+/* Error Styling */
 input[type="number"].error {
   border: 3px solid red;
   outline: 4px solid rgba(255, 0, 0, 0.3); 
@@ -90,26 +80,17 @@ input::placeholder {
 }
 
 /* Specific Widths for Day, Month, Year */
-.day input {
-  max-width: calc(100% -20px); 
-}
-
-.month input {
-  max-width: calc(100% - 20px); 
-}
-
+.day input,
+.month input,
 .year input {
-  max-width: calc(100% - 20px);
+  max-width: calc(100% - 20px); 
 }
 
 /* Make Inputs Responsive */
 @media screen and (max-width: 400px) {
-  .day input,
-  .month input,
-  .year input {
-    max-width: calc(100% - 20px);
+  * {
+    box-sizing: content-box;
   }
-
   input[type="number"] {
     font-size: 1.4em;
     padding: 12px;
@@ -121,18 +102,20 @@ input::placeholder {
   margin: 0 2px;
 }
 
-/* Button Styling */
+/* Button Container Styling */
 .calc-btn {
-  position: fixed; /* Keep button at the bottom */
+  position: fixed;
   bottom: 0;
   left: 0;
   width: calc(100% - 60px); /* Adjust for body's padding */
-  padding: 0;
-  margin: 20px 30px; /* Match body's padding */
+  margin: 0 30px; /* Match body's padding */
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 20px; /* Fixed padding for bottom */
 }
 
+/* Button Styling */
 button {
   width: 100%;
   padding: 15px;
@@ -154,4 +137,3 @@ button:active {
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
   transform: scale(0.96);
 }
-
